@@ -1,7 +1,7 @@
 import { MongoClient } from "mongodb";
 import { NextResponse } from "next/server";
 
-export async function GET(request) {
+export async function GET(request = null) {
   const uri = process.env.mongoURI;
   const client = new MongoClient(uri);
   try {

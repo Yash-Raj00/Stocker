@@ -1,7 +1,7 @@
 import { MongoClient } from "mongodb";
 import { NextResponse } from "next/server";
 
-export async function PUT(request) {
+export async function PUT(request = null) {
   try {
     const { slug, action, currQty } = await request.json();
     const uri = process.env.mongoURI;

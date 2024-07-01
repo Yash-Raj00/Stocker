@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { NextResponse } from "next/server";
 
-export async function POST(request) {
+export async function POST(request = null) {
   const { email, password } = await request.json();
   if (!email || !password) {
     return NextResponse.json(

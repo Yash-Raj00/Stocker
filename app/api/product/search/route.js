@@ -1,16 +1,15 @@
 import { MongoClient } from "mongodb";
 import { NextResponse } from "next/server";
 
-export async function GET(request) {
+export async function GET(request = null) {
   const uri = process.env.mongoURI;
   const client = new MongoClient(uri);
   try {
     const db = client.db("stocker");
     const inventory = db.collection("inventory");
-    //   const query = request.query;
     const query = request.nextUrl.searchParams.get("query");
     const styleQuery = request.nextUrl.searchParams.get("styleQuery");
-    console.log(query, styleQuery, "query");
+    // console.log(query, styleQuery, "query");
     if (styleQuery) {
       let products = await inventory
         .aggregate([

@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import connectToDatabase from "@/utils/connectToDatabase";
 import jwt from "jsonwebtoken";
 
-export async function GET(request) {
+export async function GET(request = null) {
     const token = await request.cookies.get("token");
     console.log("coooooookiiiiee", token);
     if (!token) {
