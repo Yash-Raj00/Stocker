@@ -134,13 +134,6 @@ const BarChart = ({data}) => {
     chartRef.current.chart = chart;
   }, []);
 
-  function addData(chart, label, newData) {
-    console.log(chart);      
-    console.log(chart.data);      
-    // console.log(chart.data.datasets);      
-  }
-  addData(chartRef);
-
   return (
     <div>
       <canvas ref={chartRef}></canvas>

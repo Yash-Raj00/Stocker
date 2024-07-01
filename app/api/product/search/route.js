@@ -1,11 +1,13 @@
 import { MongoClient } from "mongodb";
 import { NextResponse } from "next/server";
+import connectToDatabase from "@/utils/connectToDatabase";
 
 export async function GET(request = null) {
   const uri = process.env.mongoURI;
   const client = new MongoClient(uri);
   try {
-    const db = client.db("stocker");
+    const { db } = await connectToDatabase();
+      console.log(db, "dbdbdbdbdbdb");
     const inventory = db.collection("inventory");
     const query = request.nextUrl.searchParams.get("query");
     const styleQuery = request.nextUrl.searchParams.get("styleQuery");

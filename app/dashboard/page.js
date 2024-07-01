@@ -86,7 +86,7 @@ export default function Home() {
     if (e.target.value.trim().length > 0) {
       const newStyleQuery =
         styleQuery === "all"
-          ? ""
+          ? null
           : styleQuery.charAt(0).toUpperCase() + styleQuery.slice(1);
       try {
         console.log(search, styleQuery, "searching...");
